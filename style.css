@@ -1462,9 +1462,6 @@ body.home .site-branding a:hover{
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     flex-wrap: -webkit-box;
-    /* z-index: 9; */
-    top: 0;
-    /* position: relative; */
 }
 
 body.home .hgroup-right {
@@ -1542,8 +1539,12 @@ body.home .hgroup-right {
 
 /* sidebar menu css */
 
+.no-scroll{
+    overflow-y: hidden;
+}
+
 .sidebar-menu{
-    padding: 120px 60px;
+    padding-top: 120px;
     width: 550px;
     background: var(--black);
     position: absolute;
@@ -1556,10 +1557,22 @@ body.home .hgroup-right {
 
 .sidebar-menu.is-open{
     transform: scale(1);
+    /* height: 100vh; */
+    /* overflow-y: scroll; */
+}
+
+.sidebar-content{
+    padding: 0 60px 60px 60px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .sidebar-menu .widget {
     margin-bottom: 70px;
+}
+
+.sidebar-menu .widget:last-child {
+    margin-bottom: 100px;
 }
 
 .sidebar-menu .widget-list-wrap {
@@ -1846,16 +1859,20 @@ body.home input::placeholder{
     position: relative;
 }
 
-body.home .footer-content::after, body:not(.home) .widget-area::after{
+body.home .site-footer .container::after, body:not(.home) .widget-area::after{
     position: absolute;
     content: '';
     background-repeat: no-repeat;
     width: 100%;
 }
 
-body.home .footer-content::after{
+body.home .site-footer .container{
+    position: relative;
+}
+
+body.home .site-footer .container::after{
     top: 0;
-    right: -30px;
+    right: 0;
     background-image: url(assets/images/spiral-img.svg);
     max-width: 860px;
     height: 100%;

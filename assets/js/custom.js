@@ -37,8 +37,10 @@
 
 const menuIcon = document.querySelector('.hamburger-menu-icon');
 const sidebarMenu = document.querySelector('.sidebar-menu');
+const html = document.querySelector('html');
 
 menuIcon.addEventListener('click', () => {
+  html.classList.toggle('no-scroll');
   menuIcon.classList.toggle('is-open');
   sidebarMenu.classList.toggle('is-open');
 });

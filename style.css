@@ -1207,11 +1207,14 @@ input[type="submit"] {
 
 .btn-primary, .btn-secondary{
     font-weight: 600;
-    margin-right: 40px;
 }
 
 .link{
     font-weight: 500;
+}
+
+.links-wrap .btn-primary:not(:last-child) {
+    margin-right: 40px;
 }
 
 .btn-primary{
@@ -1617,7 +1620,7 @@ body.home .hgroup-right {
     overflow: hidden;
 }
 
-.banner h2, .banner-contact h2 {
+.banner h2, .banner-contact h2, .media-banner h2 {
     font-size: 80px;
     line-height: 1.25em;
 }
@@ -1652,7 +1655,7 @@ body.home .hgroup-right {
 
 /* about-us section start */
 
-.site-content .about-us {
+body.home .site-content .about-us {
     padding-top: 160px;
 }
 
@@ -1898,7 +1901,6 @@ body:not(.home) .widget-area::after{
 }
 
 .join-us{
-    max-width: 534px;
     color: var(--gray);
 }
 
@@ -1907,15 +1909,10 @@ body:not(.home) .widget-area::after{
 }
 
 .footer-branding-detail {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 115px 0 65px 0;
-}
-
-.footer-branding-detail.partnership {
     display: grid;
-    grid-template-columns: auto 43%;
+    grid-template-columns: auto auto;
+    gap: 0 436px;
+    padding: 115px 0 65px 0;
 }
 
 .widget-area {
@@ -1928,7 +1925,7 @@ body:not(.home) .widget-area::after{
     border-style: solid;
     border-top-color: var(--gray-shade);
     border-bottom-color: var(--gray-shade);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body.home .widget-area{
@@ -2632,7 +2629,7 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     max-width: 596px;
 }
 
-.blog-banner h2.entry-title{
+.blog-banner h2.entry-title, .partnership-banner h2.entry-title{
     font-size: 54px;
 }
 
@@ -2791,10 +2788,6 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     padding: 170px 0 135px 0;
 }
 
-.media-banner h2.entry-title{
-    font-size: 80px;
-}
-
 .banner-content .entry-content ul{
     margin: 0;
 }
@@ -2862,10 +2855,6 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0;
-}
-
-.partnership-banner h2.entry-title {
-    font-size: 54px;
 }
 
 .partnership-banner .banner-content{

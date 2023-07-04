@@ -1254,10 +1254,6 @@ input[type="submit"] {
     right: -3px;
 }
 
-.text-no-wrap{
-    white-space: nowrap;
-}
-
 .sticky-wrap {
     position: sticky;
     top: 42px;
@@ -1271,21 +1267,30 @@ body.home .site-content section{
     padding: 200px 0;
 }
 
-.site-content section, .media-banner, .banner-contact{
+.site-content section:not(:last-child) .container, .media-banner .container, .banner-contact .container{
     position: relative;
 }
 
-.site-content section:not(:last-child)::before, .media-banner::before, .banner-contact::before{
+.site-content section:not(:last-child) .container::before, .media-banner .container::before, .banner-contact .container::before{
     position: absolute;
     content: '';
-    max-width: 1220px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 96%;
     height: 1px;
-    margin: auto;
     background: var(--gray-shade);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.site-content section:not(:last-child) .container::before{
+    bottom: -260px;
+}
+
+.media-banner .container::before{
+    bottom: -135px;
+}
+
+.banner-contact .container::before{
+    bottom: -120px;
 }
 
 body:not(.home) .site-content section:last-child{
@@ -1560,8 +1565,6 @@ body.home .hgroup-right {
 
 .sidebar-menu.is-open{
     transform: scale(1);
-    /* height: 100vh; */
-    /* overflow-y: scroll; */
 }
 
 .sidebar-content{
@@ -1643,12 +1646,15 @@ body.home .hgroup-right {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -24%;
     opacity: 0.8;
 }
 
 .banner p, .banner-about p{
     margin-bottom: 40px;
+}
+
+.links-wrap {
+    margin-bottom: 60px;
 }
 
 /* banner secton end */
@@ -1670,17 +1676,6 @@ body.home .site-content .about-us {
     display: grid;
     grid-template-columns: calc(50% - 105px) calc(50% - 105px);
     gap: 0 210px;
-    position: relative;
-}
-
-.about-us-content::before, .focus-items-wrap::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: -260px;
-    width: 100%;
-    height: 1px;
-    background: var(--gray-shade);
 }
 
 .about-us-reach {
@@ -1772,7 +1767,6 @@ body.home .site-content .about-us {
 .focus-items-wrap {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    position: relative;
 }
 
 .focus-item {
@@ -1913,6 +1907,7 @@ body:not(.home) .widget-area::after{
     grid-template-columns: auto auto;
     gap: 0 436px;
     padding: 115px 0 65px 0;
+    align-items: center;
 }
 
 .widget-area {
@@ -2049,7 +2044,7 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
 .banner-about{
     padding: 175px 0 40px 0;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .banner-about .entry-content p {
@@ -2065,6 +2060,10 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     margin-right : calc( -100vw / 2 + 100% / 2 );
     max-width : 100vw;
     margin-bottom: 70px;
+}
+
+.banner-content .full-width-img img{
+    width: 100vw;
 }
 
 /* spiral div css */

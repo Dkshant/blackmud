@@ -248,6 +248,7 @@ section {
     max-width: 1268px;
     margin: 0 auto;
     padding: 0 24px;
+    position: relative;
 }
 
 ol,
@@ -1189,6 +1190,14 @@ input[type="submit"] {
 
 /* Reusable styles */
 
+.os-animation {
+    opacity: 0;
+}
+
+.os-animation.animated {
+    opacity: 1;
+}
+
 .entry-heading{
     text-align: center;
     margin-bottom: 80px;
@@ -1259,16 +1268,25 @@ input[type="submit"] {
     top: 42px;
 }
 
+.site-content section{
+    padding: 200px 0;
+}
+
 body.home .site-content section{
     padding: 260px 0;
 }
 
-.our-mission-vision, .our-story, .our-mantra, .our-partners, .our-locations, .faq{
-    padding: 200px 0;
+.site-content section.categories, .site-content section.related-posts{
+    padding: 140px 0;
 }
 
-.site-content section:not(:last-child) .container, .media-banner .container, .banner-contact .container{
-    position: relative;
+.site-content section.statistics{
+    padding: 80px 0;
+}
+
+.site-content section.partnership-information, .site-content section.post-information{
+    padding: 100px 0;
+    border-bottom: 2px solid var(--gray-shade);
 }
 
 .site-content section:not(:last-child) .container::before, .media-banner .container::before, .banner-contact .container::before{
@@ -1282,7 +1300,23 @@ body.home .site-content section{
 }
 
 .site-content section:not(:last-child) .container::before{
+    bottom: -200px;
+}
+
+body.home .site-content section:not(:last-child) .container::before{
     bottom: -260px;
+}
+
+.site-content section.categories .container::before, .site-content section.related-posts .container::before{
+    bottom: -140px;
+}
+
+.site-content section.statistics .container::before{
+    bottom: -80px;
+}
+
+.site-content section.partnership-information .container::before, .site-content section.post-information .container::before{
+    display: none;
 }
 
 .media-banner .container::before{
@@ -1295,19 +1329,6 @@ body.home .site-content section{
 
 body:not(.home) .site-content section:last-child{
     border-bottom: 2px solid var(--gray-shade);
-}
-
-.categories, .related-posts{
-    padding: 140px 0;
-}
-
-.partnership-information, .post-information{
-    padding: 100px 0;
-    border-bottom: 2px solid var(--gray-shade);
-}
-
-.partnership-information::before, .post-information::before{
-    display: none;
 }
 
 /*............................main styling from here*/
@@ -1623,7 +1644,7 @@ body.home .hgroup-right {
     overflow: hidden;
 }
 
-.banner h2, .banner-contact h2, .media-banner h2 {
+.banner h2, .banner-about h2, .banner-contact h2, .media-banner h2 {
     font-size: 80px;
     line-height: 1.25em;
 }
@@ -1650,7 +1671,7 @@ body.home .hgroup-right {
 }
 
 .banner p, .banner-about p{
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .links-wrap {
@@ -2060,6 +2081,7 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     margin-right : calc( -100vw / 2 + 100% / 2 );
     max-width : 100vw;
     margin-bottom: 70px;
+    padding-top: 40px;
 }
 
 .banner-content .full-width-img img{
@@ -2150,10 +2172,6 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
 
 /* spiral div css end */
 
-.statistics {
-    padding: 80px 0 88px 0;
-}
-
 .statistics .our-reach {
     width: 25%;
 }
@@ -2172,7 +2190,7 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
     margin-bottom: 100px;
 }
 
-.our-mission-details h3.entry-title{
+.our-mission-details h3.entry-title, .our-vision h3.entry-title{
     font-size: 64px;
     margin-bottom: 30px;
 }
@@ -2282,8 +2300,8 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
 
 .partners-detail-wrap{
     display: grid;
-    grid-template-columns: calc(33.33% - (27px + 80px/3)) calc(33.33% - (27px + 80px/3)) calc(33.33% - (27px + 80px/3));
-    gap: 0 80px;
+    grid-template-columns: calc(33.33% - (27px + 81px/3)) calc(33.33% - (27px + 81px/3)) calc(33.33% - (27px + 81px/3));
+    gap: 0 81px;
     margin-bottom: 80px;
 }
 
@@ -2514,9 +2532,10 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
 }
 
 .faq .entry-heading, .accordion-items-wrap{
-    max-width: 860px;
+    max-width: 908px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 24px;
 }
 
 .faq .entry-heading p{
@@ -2560,20 +2579,23 @@ body:not(.home) .site-footer button[type="submit"]:hover::before{
 }
 
 .accordion-number {
-    width: 92px;
     font-size: 50px;
     color: var(--secondary);
     font-weight: 500;
 }
 
 .accordion-content-wrap {
-    width: calc(100% - 92px);
+    padding-left: 90px;
 }
 
 .accordion-content {
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
     overflow: hidden;
+}
+
+.accordion-title, .accordion-content {
+    padding-right: 30px;
 }
 
 .accordion-item.open .accordion-content {
